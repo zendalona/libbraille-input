@@ -1,0 +1,24 @@
+Source: libbraille-input
+Section: utils
+Priority: optional
+Maintainer: Nalin <nalin.x.linux@gmail.com>
+Build-Depends: dh-python, debhelper-compat (= 12),
+               python3
+Standards-Version: 4.2.1
+Homepage: https://github.com/zendalona/libbraille-input
+Vcs-Git: https://github.com/zendalona/libbraille-input.git
+Vcs-Browser: https://github.com/zendalona/libbraille-input
+
+Package: libbraille-input
+Section: text
+Conflicts: lib-braille-input
+Replaces: lib-braille-input
+Architecture: all
+Multi-Arch: foreign
+Depends: ${python3:Depends}, ${misc:Depends}, python3-louis
+Description: Braille input engine for IBus-Braille and Sharada-Braille-Writer.
+ This engine can convert braille input events to text and call asociated 
+ callback functions. Here braille input means inputing text in Perkins-like 
+ way, i.e. braille patterns.
+ .
+ It supports several braille tables, contracted braille and abbreviations.

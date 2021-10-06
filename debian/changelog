@@ -1,0 +1,178 @@
+libbraille-input (0.7.3-1) focal; urgency=medium
+
+  * Initial git release
+
+ -- Nalin <nalin.x.linux@gmail.com>  Wed, 06 Oct 2021 21:11:46 +0530
+
+libbraille-input (0.7.2-1) focal; urgency=medium
+
+  * Package renamed to libbraille-input
+  * README.md updated
+  * control file updated
+
+ -- Nalin <nalin.x.linux@gmail.com>  Wed, 06 Oct 2021 07:46:41 +0530
+
+lib-braille-input (0.7.1-1) focal; urgency=medium
+
+  * Auto capitalisation feature added
+  * Caps lock and shift fixed
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sun, 03 Oct 2021 14:20:57 +0530
+
+lib-braille-input (0.7) focal; urgency=medium
+
+  * Reset built in map position on newline
+  * Alternative newline key enabled
+  * Reset liblouis back translation engine variables on List switch key press
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sun, 26 Sep 2021 11:22:50 +0530
+
+lib-braille-input (0.6.9) focal; urgency=medium
+
+  * Load language while setting variables from other object
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sat, 25 Sep 2021 16:27:36 +0530
+
+lib-braille-input (0.6.8) focal; urgency=medium
+
+  * Arabic notify language changed to ar
+
+ -- Nalin <nalin.x.linux@gmail.com>  Fri, 24 Sep 2021 12:42:37 +0530
+
+lib-braille-input (0.6.7) focal; urgency=medium
+
+  * Built in malayalam table dot-6 issue fixed
+
+ -- Nalin <nalin.x.linux@gmail.com>  Thu, 23 Sep 2021 10:52:56 +0530
+
+lib-braille-input (0.6.6) focal; urgency=medium
+
+  * Liblouis Arabic-Grade-1 table updated
+
+ -- Nalin <nalin.x.linux@gmail.com>  Thu, 23 Sep 2021 10:32:33 +0530
+
+lib-braille-input (0.6.5) focal; urgency=medium
+
+  * Final package for beta testing
+
+ -- Nalin <nalin.x.linux@gmail.com>  Tue, 21 Sep 2021 11:51:52 +0530
+
+lib-braille-input (0.6.4) focal; urgency=medium
+
+  * Switch map to middle when exapnding abbreviation in built-in mode
+  * Liblouis Table fixes
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sun, 19 Sep 2021 09:28:29 +0530
+
+lib-braille-input (0.6.3) focal; urgency=medium
+
+  * en-mathtext.ctb fixed
+
+ -- Nalin <nalin.x.linux@gmail.com>  Wed, 08 Sep 2021 11:18:10 +0530
+
+lib-braille-input (0.6.2) focal; urgency=medium
+
+  * en-mathtext.ctb updated
+
+ -- Nalin <nalin.x.linux@gmail.com>  Tue, 07 Sep 2021 08:39:12 +0530
+
+lib-braille-input (0.6.1) focal; urgency=medium
+
+  * en-mathtext.ctb updated
+
+ -- Nalin <nalin.x.linux@gmail.com>  Thu, 02 Sep 2021 15:19:57 +0530
+
+lib-braille-input (0.6) focal; urgency=medium
+
+  * New Liblouis table en-mathtext.ctb - Nemeth-Code-for-Mathematics
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sat, 28 Aug 2021 14:17:02 +0530
+
+lib-braille-input (0.5.9) focal; urgency=medium
+
+  * Liblouis letter deletion bug fixed 
+
+ -- Nalin <nalin.x.linux@gmail.com>  Wed, 25 Aug 2021 13:38:05 +0530
+
+lib-braille-input (0.5.8) focal; urgency=medium
+
+  * Advanced letter deletion for liblouis mode
+
+ -- Nalin <nalin.x.linux@gmail.com>  Wed, 25 Aug 2021 11:42:34 +0530
+
+lib-braille-input (0.5.7) focal; urgency=medium
+
+  * Built in emoji table added
+
+ -- Nalin <nalin.x.linux@gmail.com>  Tue, 24 Aug 2021 21:12:26 +0530
+
+lib-braille-input (0.5.6) focal; urgency=medium
+
+  * Malayalam tables fixed
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sun, 22 Aug 2021 16:52:23 +0530
+
+lib-braille-input (0.5.5) focal; urgency=medium
+
+  * More built in tables added
+
+ -- Nalin <nalin.x.linux@gmail.com>  Tue, 17 Aug 2021 08:40:33 +0530
+
+lib-braille-input (0.5.4) focal; urgency=medium
+
+  * Say toggling between braille input and system input
+  * Built in table arabic fixed
+  * Unnecessary files in built in tables removed
+  * Single line mode in system input fixed 
+
+ -- Nalin <nalin.x.linux@gmail.com>  Thu, 12 Aug 2021 11:24:02 +0530
+
+lib-braille-input (0.5.3) focal; urgency=medium
+
+  * Notify text commiting in verbose mode
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sat, 07 Aug 2021 20:42:30 +0530
+
+lib-braille-input (0.5.2) focal; urgency=medium
+
+  * Auto new line bug fixed
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sat, 07 Aug 2021 11:30:01 +0530
+
+lib-braille-input (0.5.1) focal; urgency=medium
+
+  * Event call back facility added
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sat, 31 Jul 2021 14:25:49 +0530
+
+lib-braille-input (0.5) focal; urgency=medium
+
+  * Set single line mode
+  * Bugfixes
+
+ -- Nalin <nalin.x.linux@gmail.com>  Wed, 28 Jul 2021 20:34:20 +0530
+
+lib-braille-input (0.4) focal; urgency=medium
+
+  * Bugfixes
+
+ -- Nalin <nalin.x.linux@gmail.com>  Tue, 27 Jul 2021 00:02:53 +0530
+
+lib-braille-input (0.3) focal; urgency=medium
+
+  * Toggle braille mode
+  * Bugfixes
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sat, 24 Jul 2021 19:51:41 +0530
+
+lib-braille-input (0.2) focal; urgency=medium
+
+  * Python braille input engine added
+
+ -- Nalin <nalin.x.linux@gmail.com>  Fri, 23 Jul 2021 23:39:48 +0530
+
+lib-braille-input (0.1) focal; urgency=medium
+
+  * initial release
+
+ -- Nalin <nalin.x.linux@gmail.com>  Mon, 12 Jul 2021 12:21:16 +0530
