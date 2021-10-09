@@ -133,7 +133,7 @@ Russian-Computer-Braille ru-compbrl.ctb ru
 Russian-Grade-1 ru-ru-g1.utb ru
 Russian-literary ru-litbrl.ctb ru
 Russian ru.ctb ru
-Sanskrit-Grade-1 sa-in-g1.utb en
+Sanskrit-Grade-1 sa-in-g1.utb hi
 Serbian-Grade-1 sr-g1.ctb sr
 Simplified-Chinese zh-chn.ctb en
 Sindhi-Grade-1 si-in-g1.utb en

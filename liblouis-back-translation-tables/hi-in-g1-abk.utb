@@ -413,5 +413,20 @@ midendword \x0902 56
 
 midendword \X0923 3456 #davanagari nna
 
+midword \x091D 356
+sufword \x091D 356
+
+midword \x092B 235
+sufword \x092B 235
+
+# endword ." 256-356
+endword \x0964\x0022 256-356 
+endword \x002C\x0022 2-356
+endword \x0021\x0022 235-356
+
+endword \x0964 256
+
+sufword \X0923 56-3456 #davanagari nna
+
 include en-in-g1.ctb
 
