@@ -182,8 +182,9 @@ math \x200A a
 ###@@@
 #math \x02BC 12
 
-math \x2146 145
+
 ###@@@
+#math \x2146 145
 #math \x2147 15
 
 math \x2007 a
@@ -530,6 +531,8 @@ punctuation ; 56
 
 
 # Not defined in nemethdefs.cti 
+always ( 12356
+always ) 23456
 always [ 4-12356
 always ] 4-23456
 always { 46-12356
@@ -573,7 +576,8 @@ punctuation " 456-356
 punctuation ; 456-23
 punctuation , 456-2
 punctuation ) 456-2356
-
+always / 456-34
+always ^ 456-126
 
 always ? 123456
 
@@ -589,6 +593,25 @@ capsletter 6
 begcapsword 6-6
 endcapsword 6-3
 letsign 56
+
+midnum , 6
+postpunc , 6
+word , 4-6
+always . 46
+always + 346
+always = 46-13
+always / 34
+postpunc ? 236
+postpunc " 356
+word " 4-236
+
+postpunc ; 23
+word ; 4-23
+midnum : 25
+postpunc : 25
+always : 4-25
+postpunc ! 235
+always ! 4-235
 
 
 #FIX 8 "
