@@ -166,7 +166,8 @@ class BrailleInputEngine():
 		self.set_conventional_braille(obj.conventional_braille)
 		self.set_one_hand_mode(obj.one_hand_mode)
 		self.set_one_hand_conversion_delay(obj.one_hand_conversion_delay)
-		self.set_notify_callback(obj.notify)
+		self.set_notify_callback(obj.notify_function)
+		self.set_notification(obj.notification)
 		self.set_notify_language_callback(obj.set_notify_language)
 		
 		if(obj.liblouis_mode):
@@ -229,14 +230,14 @@ class BrailleInputEngine():
 		self.liblouis_mode = True
 		self.language_liblouis, notify_language = self.liblouis_language_table_conversion_dict[language]
 		self.set_notify_language(notify_language)
-		self.notify(language)
+		self.notify_text(language)
 		
 	def set_built_in_language(self,language):
 		self.last_loaded_built_in_language = language
 		self.liblouis_mode = False
 		self.load_built_in_table(language)
 		self.set_notify_language(self.built_in_language_notify_language_conversion_dict[language])
-		self.notify(language)
+		self.notify_text(language)
 
 	def set_checked_languages_built_in(self, list_):
 		self.checked_languages_built_in = list_
@@ -274,9 +275,9 @@ class BrailleInputEngine():
 		self.braille_mode = not self.braille_mode
 		self.reset()
 		if(self.braille_mode):
-			self.notify(_("Switched to Braille input"));
+			self.notify_text(_("Switched to Braille input"));
 		else:
-			self.notify(_("Switched to System input"));
+			self.notify_text(_("Switched to System input"));
 		
 
 	def set_braille_mode(self, value):
@@ -284,8 +285,15 @@ class BrailleInputEngine():
 		self.last_appeared_word_length = 0;
 		self.louis_typing_word_combinations = "";
 
+	def set_notification(self, value):
+		self.notification = value
+
+	def notify_text(self, text, verbose=False):
+		if(self.notification):
+			self.notify_function(text, verbose)
+
 	def set_notify_callback(self, function):
-		self.notify = function
+		self.notify_function = function
 
 	def set_notify_language_callback(self, function):
 		self.set_notify_language = function
@@ -388,10 +396,10 @@ class BrailleInputEngine():
 				if( len(text) >= self.line_limit):
 					if (self.auto_new_line and not self.sigle_line_mode):
 						self.commit_string("\n");
-						self.notify(_("new line"));
+						self.notify_text(_("new line"));
 					else:
 						self.commit_string(" ");
-						self.notify(_("Limit exceeded"));
+						self.notify_text(_("Limit exceeded"));
 				else:
 					self.commit_string(" ");
 				self.call_event_callback()
@@ -402,7 +410,7 @@ class BrailleInputEngine():
 				clear_current_typing_variable=True
 				self.is_liblouis_typing = False
 				self.commit_string("\n");
-				self.notify(_("new line"));
+				self.notify_text(_("new line"));
 				self.call_event_callback()
 			
 			
@@ -413,7 +421,7 @@ class BrailleInputEngine():
 					language_name = self.checked_languages_liblouis[self.language_iter_liblouis];
 					self.language_liblouis, tts_language = self.liblouis_language_table_conversion_dict[language_name]
 					self.set_notify_language(tts_language)
-					self.notify("{} Loaded!".format(language_name));
+					self.notify_text("{} Loaded!".format(language_name));
 				else:
 					self.language_iter=(self.language_iter+1)%len(self.checked_languages);
 					self.load_built_in_table(self.checked_languages[self.language_iter])
@@ -527,14 +535,14 @@ class BrailleInputEngine():
 						break;
 					count += 1
 				self.delete_text_before_cursor(count);
-				self.notify(string_up_to_cursor[-(count):]+"Deleted")
+				self.notify_text(string_up_to_cursor[-(count):]+"Deleted")
 				self.call_event_callback()	
 			
 			#If end is not space, delete length of last word	
 			else:
 				count = len(string_up_to_cursor.split()[-1])
 				self.delete_text_before_cursor(count);
-				self.notify(string_up_to_cursor.split()[-1]+"Deleted")
+				self.notify_text(string_up_to_cursor.split()[-1]+"Deleted")
 				self.call_event_callback()
 			
 			self.last_appeared_word_length = 0;
@@ -564,7 +572,7 @@ class BrailleInputEngine():
 					self.commit_string(result);
 				else:
 					self.delete_text_before_cursor(1);	
-					self.notify(surrounding_text[-1:]+"Deleted")
+					self.notify_text(surrounding_text[-1:]+"Deleted")
 					self.last_appeared_word_length = 0;
 					self.louis_typing_word_combinations = "";
 
@@ -575,13 +583,13 @@ class BrailleInputEngine():
 			if (self.capital_shift == 1):
 				if (self.caps_lock == False):
 					self.caps_lock = True
-					self.notify("Caps Lock On!")
+					self.notify_text("Caps Lock On!")
 				else:
 					self.caps_lock = False
-					self.notify("Caps Lock Off!")
+					self.notify_text("Caps Lock Off!")
 					self.capital_shift = 0;
 			else:
-				self.notify("Shift On!")
+				self.notify_text("Shift On!")
 				self.capital_shift = 1;
 
 
@@ -783,10 +791,10 @@ class BrailleInputEngine():
 					announce_text = text[len(self.previous_announced_text):]
 				else:
 					announce_text = text[:]
-			self.notify(announce_text, True);
+			self.notify_text(announce_text, True);
 			self.previous_announced_text = text
 		elif (len(text) > 1):
-			self.notify(text,True)
+			self.notify_text(text,True)
 
 	def three_dot_do_commit(self):
 		self.three_dot_pos = 1;
