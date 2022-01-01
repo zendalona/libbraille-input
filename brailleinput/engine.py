@@ -27,8 +27,10 @@ import enum
 
 import re
 
-import gettext
-_ = gettext.gettext
+import locale
+from locale import gettext as _
+locale.bindtextdomain('libbraille-input', '/usr/share/locale')
+locale.textdomain('libbraille-input')
 
 #Liblouis
 import louis
@@ -421,7 +423,7 @@ class BrailleInputEngine():
 					language_name = self.checked_languages_liblouis[self.language_iter_liblouis];
 					self.language_liblouis, tts_language = self.liblouis_language_table_conversion_dict[language_name]
 					self.set_notify_language(tts_language)
-					self.notify_text("{} Loaded!".format(language_name));
+					self.notify_text(_("{} Loaded!").format(language_name));
 				else:
 					self.language_iter=(self.language_iter+1)%len(self.checked_languages);
 					self.load_built_in_table(self.checked_languages[self.language_iter])
@@ -535,14 +537,14 @@ class BrailleInputEngine():
 						break;
 					count += 1
 				self.delete_text_before_cursor(count);
-				self.notify_text(string_up_to_cursor[-(count):]+"Deleted")
+				self.notify_text(string_up_to_cursor[-(count):]+_("Deleted"))
 				self.call_event_callback()	
 			
 			#If end is not space, delete length of last word	
 			else:
 				count = len(string_up_to_cursor.split()[-1])
 				self.delete_text_before_cursor(count);
-				self.notify_text(string_up_to_cursor.split()[-1]+"Deleted")
+				self.notify_text(string_up_to_cursor.split()[-1]+_("Deleted"))
 				self.call_event_callback()
 			
 			self.last_appeared_word_length = 0;
@@ -572,7 +574,7 @@ class BrailleInputEngine():
 					self.commit_string(result);
 				else:
 					self.delete_text_before_cursor(1);	
-					self.notify_text(surrounding_text[-1:]+"Deleted")
+					self.notify_text(surrounding_text[-1:]+_("Deleted"))
 					self.last_appeared_word_length = 0;
 					self.louis_typing_word_combinations = "";
 
@@ -583,13 +585,13 @@ class BrailleInputEngine():
 			if (self.capital_shift == 1):
 				if (self.caps_lock == False):
 					self.caps_lock = True
-					self.notify_text("Caps Lock On!")
+					self.notify_text(_("Caps Lock On!"))
 				else:
 					self.caps_lock = False
-					self.notify_text("Caps Lock Off!")
+					self.notify_text(_("Caps Lock Off!"))
 					self.capital_shift = 0;
 			else:
-				self.notify_text("Shift On!")
+				self.notify_text(_("Shift On!"))
 				self.capital_shift = 1;
 
 
