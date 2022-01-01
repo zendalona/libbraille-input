@@ -24,4 +24,19 @@
 # To report any bugs or any suggestion, please write to d@saksham.org and sreeja.param@gmail.com
 
 include kannada.cti
+sufword   \x0C9D	356	# KANNADA LETTER JHA
+sufword   \x0C9E	25	# KANNADA LETTER NYA
+
+midword   \x0C9D	356	# KANNADA LETTER JHA
+midword   \x0C9E	25	# KANNADA LETTER NYA
+
+midendword   \x0C9E\x0CCD\x0C9E	4-25-25	# KANNADA LETTER NYA
+
+sufword \x0CA3	56-3456	# KANNADA LETTER NNA
+midendword \x0CA3	3456	# KANNADA LETTER NNA
+
+always   \x0C83	6	# KANNADA SIGN VISARGA
+
 include en-in-g1.ctb
+
+
