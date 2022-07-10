@@ -1,3 +1,10 @@
+libbraille-input (0.9-1) focal; urgency=medium
+
+  * Using direct keycode instead of event.hardware_keycode
+  * Engine variables initial values fixed
+
+ -- Nalin <nalin.x.linux@gmail.com>  Sun, 10 Jul 2022 11:16:03 +0530
+
 libbraille-input (0.8-1) focal; urgency=medium
 
   * Malayalam table updated
