@@ -107,10 +107,14 @@ class BrailleInputEngine():
 
 		self.simple_mode = False
 		
-		self.liblouis_mode = False
+		self.liblouis_mode = True
 		
 		self.sigle_line_mode = False
 		
+		self.one_hand_mode = False
+
+		self.notification = True
+
 		self.liblouis_language_table_conversion_dict = {}
 		
 		self.pressed_key_list = []
@@ -120,6 +124,7 @@ class BrailleInputEngine():
 		
 		self.previous_announced_text = ""
 
+		self.conventional_braille = False
 		self.conventional_braille_dot_4 = False;
 		self.conventional_braille_dot_4_pass = False;
 		self.conventional_braille_dot_3 = False;
@@ -136,6 +141,8 @@ class BrailleInputEngine():
 		self.capital_shift = 0;
 		self.caps_lock = 0
 		
+		self.line_limit = 80
+
 		self.is_liblouis_typing = False
 
 		# Used with liblouis based engine
@@ -300,9 +307,8 @@ class BrailleInputEngine():
 	def set_notify_language_callback(self, function):
 		self.set_notify_language = function
 		
-	def key_pressed(self,event):		
+	def key_pressed(self,keycode):
 		self.get_text_before_cursor(20)
-		keycode = event.hardware_keycode;
 		print("Keycode = "+str(keycode))
 
 		if keycode in self.keycode_map.keys():
@@ -462,13 +468,13 @@ class BrailleInputEngine():
 
 		
 
-	def key_released(self,event):
+	def key_released(self,keycode):
 		# Passing if not in braille mode
 		if (not self.braille_mode):
 			return False
+
 		
 		# Filter processing of other keys
-		keycode = event.hardware_keycode;
 		if keycode not in self.keycode_map.keys():
 			# Prevent liblouis letter deletion with combination if any other keys pressed
 			self.is_liblouis_typing = False			
